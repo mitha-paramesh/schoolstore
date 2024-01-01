@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+        background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Hibbing_High_School_2014.jpg/1200px-Hibbing_High_School_2014.jpg");
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        text-align:center;
+        }
+          .login-container {
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        }
+         input {
+            width: 25%;
+            padding: 10px;
+            margin-bottom: 16px;
+        }
+          button {
+
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+<div class="reg-container">
+<h1>Registration</h1>
+<form action="{% url 'schoolapp:register' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your name"><br>
+    <input type="password" name="password" placeholder="Enter password"><br>
+    <input type="password" name="password1" placeholder="Confirm password"><br>
+    <input type="submit">
+
+
+</form>
+
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</div>
+</body>
+</html>

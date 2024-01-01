@@ -1,0 +1,100 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Final</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--        height: 100vh;-->
+<!--        margin: 0;-->
+<!--        background-image:url("https://img.freepik.com/free-vector/mandala-design-background_79603-2153.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702944000&semt=ais");-->
+<!--        background-repeat:no-repeat;-->
+<!--        background-attachment: fixed;-->
+<!--        background-size: cover;-->
+<!--        text-align:center;-->
+<!--        }-->
+<!--        . message {-->
+<!--        margin-top:20px;-->
+<!--        text-align:center;-->
+<!--        }-->
+<!--        .home button {-->
+<!--            padding: 5px 10px;-->
+<!--            background-color:#E0FFFF;-->
+<!--            color: black;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--            font-size:40px;-->
+<!--        }-->
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="message">-->
+<!--    <h1>Your request has been confirmed.Thank you,visit again !</h1>-->
+<!--</div>-->
+
+<!--<div class="home">-->
+<!--<a href="{% url 'schoolapp:index' %}">-->
+<!--    <button type="button">Return to home page</button>-->
+<!--</a>-->
+<!--</div>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("https://img.freepik.com/free-vector/mandala-design-background_79603-2153.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1702944000&semt=ais");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            text-align: center;
+            flex-direction: column; /* Updated to column to stack elements vertically */
+        }
+
+        .message {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .home {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .home button {
+            padding: 5px 10px;
+            background-color: #E0FFFF;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Your request has been confirmed. Thank you, visit again!</h1>
+    </div>
+
+    <div class="home">
+        <a href="{% url 'schoolapp:home' %}">
+            <button type="button">Return to home page</button>
+        </a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  background-image: url("https://imagescdn.homes.com/i2/HaJFkXJOX7n37_W24o4oj2DAlfU2UXDs7t1CVqQ0t8g/111/eastern-high-school-washington-dc-3.jpg?p=1");
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: gray;
+}
+
+p {
+  color:white;
+  font-family:Arial;
+  float: center;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+.button {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.footer {
+  overflow: hidden;
+  background-color: #333;
+  font-size: 16px;
+  position: fixed;
+  padding: 14px 16px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+
+}
+
+.footer a:hover   {
+    background-color:gray;
+    }
+
+</style>
+</head>
+<body style="background-color:white;">
+
+<div class="navbar">
+  <a href="{% url 'schoolapp:logout' %}">Logout</a>
+
+
+
+  <p>ABC Higher Secondary School LA</p>
+</div>
+
+<div class="footer">
+<footer>
+
+</footer>
+</div>
+
+
+</body>
+</html>

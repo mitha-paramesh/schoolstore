@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        body {
+        text-align:center;
+        background-image:url("https://e1.pxfuel.com/desktop-wallpaper/407/1022/desktop-wallpaper-website-backgrounds-login-page.jpg");
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        text-align:center;
+        }
+          .logout {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+
+        .logout button {
+            padding: 5px 10px;
+            background-color:#E0FFFF;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size:40px;
+        }
+    </style>
+</head>
+<body>
+<h1>Application Form</h1>
+<form action="{% url 'schoolapp:final' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="Name" placeholder="Enter your name" required><br>
+    <label for="dob">DOB</label><br>
+    <input type="date" id="dob" name="DOB" placeholder="Enter dob" required><br>
+    <label for="age">Age</label><br>
+    <input type="text" id="age" name="Age" placeholder="Enter your age" pattern="[0-9]+" title="Please enter only numbers" required><br>
+    <label for="Gender">Gender</label><br>
+    <input type="radio" id="male" name="Gender" value="male" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="Gender" value="female" required>
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="Gender" value="other" required>
+    <label for="other">Other</label><br>
+    <label for="phone">Phone Number</label><br>
+    <input type="tel"  id="phone" placeholder="Enter your phone number" pattern="[0-9]+" title="Please enter only numbers" required><br>
+    <label for="email id">Email ID</label><br>
+    <input type="email" id="email id" name="Email ID" placeholder="Enter your email id" required><br>
+    <label for="address">Address</label><br>
+    <input type="text" id="address" name="Address" placeholder="Enter your address" required><br>
+    <label for="department">Department</label><br>
+    <select id="department" onchange="populateCourses()" required>
+        <option value="">Select Department</option>
+        <option value="Bio maths">Bio-Maths</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Commerce">Commerce</option>
+        <option value="Agriculture">Agriculture</option>
+        <option value="Humanities">Humanities</option>
+    </select><br>
+    <label for="course">Courses</label><br>
+        <select id="course" required>
+        <option value="">Select Course</option>
+        </select><br>
+    <script>
+    function populateCourses() {
+        var departmentSelect = document.getElementById('department');
+        var courseSelect = document.getElementById('course');
+        var selectedDepartment = departmentSelect.value;
+
+        // Clear the existing options
+        courseSelect.innerHTML = '<option value="">Select Course</option>';
+
+        // Add courses based on the selected department
+        if (selectedDepartment === 'Bio maths') {
+            addOption(courseSelect,'mbbs','MBBS');
+            addOption(courseSelect,'bds','BDS');
+            addOption(courseSelect,'btech','BTech');
+
+            // Add more bio-maths-related courses
+        } else if (selectedDepartment === 'Computer Science') {
+            addOption(courseSelect,'bca' , 'BCA');
+            addOption(courseSelect, 'btech', 'Btech');
+            addOption(courseSelect, 'bsc','Bsc');
+            // Add more computer science-related courses
+        } else if (selectedDepartment === 'Commerce') {
+            addOption(courseSelect, 'bcom', 'B.Com');
+            addOption(courseSelect, 'bba', 'BBA');
+            addOption(courseSelect, 'ba', 'BA');
+            // Add more commerce-related courses
+        } else if (selectedDepartment === 'Agriculture') {
+            addOption(courseSelect, 'horticulture', 'Horticulture');
+            addOption(courseSelect, 'bsc','BSc');
+            addOption(courseSelect, 'biochemistry','Biochemistry');
+            // Add agriculture-related courses
+        } else if (selectedDepartment === 'Humanities') {
+            addOption(courseSelect,'bsw', 'BSW');
+            addOption(courseSelect, 'ba', 'BA');
+            addOption(courseSelect, 'law','Law');
+            // Add more humanities-related courses
+        }
+    }
+
+    function addOption(selectElement, value, text) {
+        var option = document.createElement('option');
+        option.value = value;
+        option.text = text;
+        selectElement.add(option);
+    }
+    </script>
+
+    <label for="purpose">Purpose</label><br>
+    <select id="purpose" >
+        <option value="">Select </option>
+        <option value="for enquiry">For enquiry</option>
+        <option value="place order">Place order</option>
+        <option value="return">Return</option>
+    </select><br>
+
+    <label for="materials provided">Materials provided</label><br>
+     <input type="checkbox" id="debitNoteBook" name="materials_provided" value="Debit Note Book" >
+        <label for="debitNoteBook">Debit Note Book</label><br>
+     <input type="checkbox" id="pen" name="materials_provided" value="Pen" >
+        <label for="pen">Pen</label><br>
+     <input type="checkbox" id="exam papers" name="materials_provided" value="Exam papers" >
+        <label for="exam papers">Exam papers</label><br>
+
+     <input type="submit">
+    <script>
+    function validateForm() {
+        var name = document.getElementById('name').value;
+        var dob = document.getElementById('dob').value;
+        var age = document.getElementById('age').value;
+        var gender = document.querySelector('input[name="Gender"]:checked');
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email id').value;
+        var address = document.getElementById('address').value;
+        var department = document.getElementById('department').value;
+        var course = document.getElementById('course').value;
+        var purpose = document.getElementById('purpose').value;
+        var checkboxes = document.getElementsByName('materials_provided');
+        var atLeastOneChecked = false;
+
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                atLeastOneChecked = true;
+            }
+        });
+
+        if (!name || !dob || !age || !gender || !phone || !email || !address || !department || !course || !purpose || !atLeastOneChecked) {
+            alert('Please fill in all required fields and select at least one material provided.');
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+    </script>
+    <div class="logout">
+    <a href="{% url 'schoolapp:logout' %}">
+        <button type="button">Logout</button>
+    </a>
+    </div>
+
+</form>
+</body>
+</html>
+
+
+
+

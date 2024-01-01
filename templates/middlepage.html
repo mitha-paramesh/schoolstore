@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        middle {
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        }
+        body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-image:url("https://drexel.edu/~/media/Drexel/Sites/Core/Images/admissions/visit-tours/virtual-background-downloads/blue-pattern.ashx");
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        text-align:center;
+        }
+        button {
+        font-size:40px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+            <div class="middle">
+                <a href="{% url 'schoolapp:form' %}">
+                <button type="button">Click here to proceed</button>
+                </a>
+            </div>
+
+</div>
+</body>
+</html>
